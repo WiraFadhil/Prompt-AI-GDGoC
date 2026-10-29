@@ -1,65 +1,102 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<title>GDGoC</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GDGoC – Komunitas Developer Kampus</title>
+<meta name="description" content="Google Developer Groups on Campus: belajar, bangun, dan tumbuh bareng komunitas developer kampus.">
 <link rel="stylesheet" href="style.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">Lewati ke konten utama</a>
 
-<div class="top">
-  <div class="logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">D</span><span style="color:#FBBC04">G</span><span style="color:#34A853">oC</span></div>
-  <div class="menu">
-    <span onclick="go('about')">About</span>
-    <span onclick="go('events')">Events</span>
-    <span onclick="go('join')">Join</span>
-  </div>
-</div>
+<header class="top">
+  <a class="logo" href="#" aria-label="GDGoC, beranda">
+    <span class="g-blue">G</span><span class="g-red">D</span><span class="g-yellow">G</span><span class="g-green">oC</span>
+  </a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#events">Event</a></li>
+      <li><a href="#join">Gabung</a></li>
+    </ul>
+  </nav>
+</header>
 
-<div class="hero">
-  <h3>Google Developer Groups on Campus</h3>
-  <p class="sub">Belajar, bangun, dan tumbuh bareng komunitas developer kampus.</p>
-  <div class="btn" onclick="go('join')">Gabung sekarang</div>
-</div>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-img" src="img/hero.jpg" width="3200" height="2000" alt="" fetchpriority="high">
+    <div class="hero-text">
+      <h1 id="hero-title">Google Developer Groups on Campus</h1>
+      <p>Belajar, bangun, dan tumbuh bareng komunitas developer kampus.</p>
+      <a class="btn" href="#join">Gabung sekarang</a>
+    </div>
+  </section>
 
-<div id="about" class="section">
-  <h4>Tentang kami</h4>
-  <p class="light">GDGoC adalah komunitas mahasiswa yang belajar teknologi Google bersama-sama. Kami mengadakan workshop, study jam, dan proyek kolaborasi setiap bulan untuk semua jurusan.</p>
-  <div class="stats">
-    <div><b id="c1">0</b><br>Anggota</div>
-    <div><b id="c2">0</b><br>Event</div>
-    <div><b id="c3">0</b><br>Project</div>
-  </div>
-</div>
+  <section id="about" class="section" aria-labelledby="about-title">
+    <h2 id="about-title">Tentang kami</h2>
+    <p class="lead">GDGoC adalah komunitas mahasiswa yang belajar teknologi Google bersama-sama. Kami mengadakan workshop, study jam, dan proyek kolaborasi setiap bulan untuk semua jurusan.</p>
+    <dl class="stats">
+      <div><dt>Anggota</dt><dd>250</dd></div>
+      <div><dt>Event</dt><dd>40</dd></div>
+      <div><dt>Project</dt><dd>12</dd></div>
+    </dl>
+  </section>
 
-<div id="events" class="section">
-  <h1>Event terdekat</h1>
-  <div class="cards">
-    <div class="card"><img src="img/event-1.jpg"><h5>Study Jam: Flutter</h5><p class="light">Bangun aplikasi mobile pertamamu.</p></div>
-    <div class="card"><img src="img/event-2.jpg"><h5>Workshop Web</h5><p class="light">HTML, CSS, JS dari nol.</p></div>
-    <div class="card"><img src="img/event-3.jpg"><h5>Intro Cloud</h5><p class="light">Kenalan dengan layanan cloud.</p></div>
-  </div>
-</div>
+  <section id="events" class="section" aria-labelledby="events-title">
+    <h2 id="events-title">Event terdekat</h2>
+    <ul class="cards">
+      <li class="card">
+        <img src="img/event-1.jpg" width="1600" height="1040" loading="lazy" alt="Ilustrasi lingkaran warna biru dan merah untuk Study Jam Flutter">
+        <h3>Study Jam: Flutter</h3>
+        <p>Bangun aplikasi mobile pertamamu.</p>
+      </li>
+      <li class="card">
+        <img src="img/event-2.jpg" width="1600" height="1040" loading="lazy" alt="Ilustrasi lingkaran warna merah dan kuning untuk Workshop Web">
+        <h3>Workshop Web</h3>
+        <p>HTML, CSS, JS dari nol.</p>
+      </li>
+      <li class="card">
+        <img src="img/event-3.jpg" width="1600" height="1040" loading="lazy" alt="Ilustrasi lingkaran warna kuning dan hijau untuk Intro Cloud">
+        <h3>Intro Cloud</h3>
+        <p>Kenalan dengan layanan cloud.</p>
+      </li>
+    </ul>
+  </section>
 
-<div class="section">
-  <h2>Kata mereka</h2>
-  <div id="quote" class="quote"></div>
-</div>
+  <section class="section" aria-labelledby="quote-title">
+    <h2 id="quote-title">Kata mereka</h2>
+    <figure class="quote-list">
+      <blockquote><p>Dapat teman dan ilmu baru tiap minggu.</p><figcaption>Rina</figcaption></blockquote>
+      <blockquote><p>Workshop-nya bikin saya berani bikin app.</p><figcaption>Dimas</figcaption></blockquote>
+      <blockquote><p>Komunitas yang ramah buat pemula.</p><figcaption>Sari</figcaption></blockquote>
+    </figure>
+  </section>
 
-<div id="join" class="section">
-  <h2>Daftar</h2>
-  <input type="text" id="name" placeholder="Nama">
-  <input type="text" id="email" placeholder="Email">
-  <div class="btn2" onclick="submitForm()">Kirim</div>
-  <span id="msg"></span>
-</div>
+  <section id="join" class="section" aria-labelledby="join-title">
+    <h2 id="join-title">Daftar</h2>
+    <form id="join-form" novalidate>
+      <div class="field">
+        <label for="name">Nama lengkap</label>
+        <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-err">
+        <p class="err" id="name-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-err">
+        <p class="err" id="email-err" hidden></p>
+      </div>
+      <button type="submit" class="btn btn-green">Kirim pendaftaran</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
 
-<div class="footer">
-  <p>Ingin tahu lebih banyak? <a href="#">Click here</a> atau <a href="#">click here</a> untuk Instagram.</p>
+<footer class="footer">
+  <p>Ingin tahu lebih banyak? Ikuti <a href="#">GDGoC di Instagram</a> atau baca <a href="#">panduan anggota baru</a>.</p>
   <p>&copy; GDGoC</p>
-</div>
-
+</footer>
 </body>
 </html>

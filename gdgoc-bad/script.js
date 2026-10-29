@@ -1,58 +1,47 @@
-// Beban awal yang tidak perlu (memblokir main thread)
-window.onload = function () {
-  var t = Date.now();
-  while (Date.now() - t < 600) { Math.sqrt(Math.random()); }
+(function () {
+  'use strict';
 
-  animate('c1', 250); animate('c2', 40); animate('c3', 12);
-  startQuotes();
-  window.addEventListener('scroll', heavyScroll);
-};
+  // Menu mobile
+  var toggle = document.querySelector('.menu-toggle');
+  var nav = document.getElementById('nav');
+  var mq = window.matchMedia('(max-width: 640px)');
+  function syncNav() { nav.hidden = mq.matches && toggle.getAttribute('aria-expanded') !== 'true'; }
+  toggle.addEventListener('click', function () {
+    var open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    syncNav();
+  });
+  mq.addEventListener('change', syncNav);
+  syncNav();
 
-function animate(id, target) {
-  var n = 0;
-  var el = document.getElementById(id);
-  var i = setInterval(function () {
-    n++;
-    el.innerHTML = n;
-    if (n >= target) clearInterval(i);
-  }, 1);
-}
+  // Validasi form dengan pesan yang bisa dibaca screen reader
+  var form = document.getElementById('join-form');
+  var status = document.getElementById('status');
 
-var quotes = [
-  '"Dapat teman dan ilmu baru tiap minggu." - Rina',
-  '"Workshop-nya bikin saya berani bikin app." - Dimas',
-  '"Komunitas yang ramah buat pemula." - Sari'
-];
-var qi = 0;
-function startQuotes() {
-  setInterval(function () {
-    document.getElementById('quote').innerHTML = quotes[qi];
-    qi = (qi + 1) % quotes.length;
-  }, 1500); // berganti otomatis, tidak bisa dijeda
-}
-
-// Membaca layout lalu menulis style di setiap scroll (layout thrashing)
-function heavyScroll() {
-  var cards = document.getElementsByClassName('card');
-  for (var i = 0; i < cards.length; i++) {
-    var h = cards[i].offsetHeight;
-    cards[i].style.paddingBottom = (12 + (h % 2)) + 'px';
+  function setError(input, message) {
+    var err = document.getElementById(input.id + '-err');
+    if (message) {
+      err.textContent = message; err.hidden = false;
+      input.setAttribute('aria-invalid', 'true');
+    } else {
+      err.hidden = true; input.removeAttribute('aria-invalid');
+    }
   }
-}
 
-function go(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-}
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = '';
+    var name = form.elements.name, email = form.elements.email;
+    var firstInvalid = null;
 
-function submitForm() {
-  var n = document.getElementById('name').value;
-  var e = document.getElementById('email').value;
-  var m = document.getElementById('msg');
-  if (n == '' || e == '') {
-    m.style.color = 'red';
-    m.innerHTML = 'Error';
-    document.getElementById('name').style.border = '1px solid red';
-  } else {
-    alert('Terima kasih ' + n + '!');
-  }
-}
+    if (!name.value.trim()) { setError(name, 'Nama wajib diisi.'); firstInvalid = firstInvalid || name; }
+    else setError(name, '');
+
+    if (!/^\S+@\S+\.\S+$/.test(email.value)) { setError(email, 'Masukkan email yang valid, contoh: nama@kampus.ac.id.'); firstInvalid = firstInvalid || email; }
+    else setError(email, '');
+
+    if (firstInvalid) { firstInvalid.focus(); return; }
+    status.textContent = 'Terima kasih, ' + name.value.trim() + '! Pendaftaranmu sudah kami terima.';
+    form.reset();
+  });
+})();
