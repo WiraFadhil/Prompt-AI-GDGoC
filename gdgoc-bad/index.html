@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>GDGoC</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+<div class="top">
+  <div class="logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">D</span><span style="color:#FBBC04">G</span><span style="color:#34A853">oC</span></div>
+  <div class="menu">
+    <span onclick="go('about')">About</span>
+    <span onclick="go('events')">Events</span>
+    <span onclick="go('join')">Join</span>
+  </div>
+</div>
+
+<div class="hero">
+  <h3>Google Developer Groups on Campus</h3>
+  <p class="sub">Belajar, bangun, dan tumbuh bareng komunitas developer kampus.</p>
+  <div class="btn" onclick="go('join')">Gabung sekarang</div>
+</div>
+
+<div id="about" class="section">
+  <h4>Tentang kami</h4>
+  <p class="light">GDGoC adalah komunitas mahasiswa yang belajar teknologi Google bersama-sama. Kami mengadakan workshop, study jam, dan proyek kolaborasi setiap bulan untuk semua jurusan.</p>
+  <div class="stats">
+    <div><b id="c1">0</b><br>Anggota</div>
+    <div><b id="c2">0</b><br>Event</div>
+    <div><b id="c3">0</b><br>Project</div>
+  </div>
+</div>
+
+<div id="events" class="section">
+  <h1>Event terdekat</h1>
+  <div class="cards">
+    <div class="card"><img src="img/event-1.jpg"><h5>Study Jam: Flutter</h5><p class="light">Bangun aplikasi mobile pertamamu.</p></div>
+    <div class="card"><img src="img/event-2.jpg"><h5>Workshop Web</h5><p class="light">HTML, CSS, JS dari nol.</p></div>
+    <div class="card"><img src="img/event-3.jpg"><h5>Intro Cloud</h5><p class="light">Kenalan dengan layanan cloud.</p></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Kata mereka</h2>
+  <div id="quote" class="quote"></div>
+</div>
+
+<div id="join" class="section">
+  <h2>Daftar</h2>
+  <input type="text" id="name" placeholder="Nama">
+  <input type="text" id="email" placeholder="Email">
+  <div class="btn2" onclick="submitForm()">Kirim</div>
+  <span id="msg"></span>
+</div>
+
+<div class="footer">
+  <p>Ingin tahu lebih banyak? <a href="#">Click here</a> atau <a href="#">click here</a> untuk Instagram.</p>
+  <p>&copy; GDGoC</p>
+</div>
+
+</body>
+</html>

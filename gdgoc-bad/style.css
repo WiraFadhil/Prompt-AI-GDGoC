@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap');
+
+* { transition: all 0.6s; box-sizing: border-box; outline: none; }
+body { margin: 0; font-family: 'Playfair Display', serif; font-size: 13px; background: #fff; color: #333; }
+a { color: #FBBC04; text-decoration: none; }
+
+.top { display: flex; justify-content: space-between; padding: 20px 40px; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.4); }
+.logo { font-family: 'Pacifico', cursive; font-size: 26px; }
+.menu span { margin-left: 24px; color: #bbb; cursor: pointer; font-size: 12px; }
+
+.hero { background: url(img/hero-big.jpg) center/cover; height: 560px; padding: 150px 40px; color: #fff; }
+.hero h3 { font-size: 48px; margin: 0 0 10px; text-shadow: 0 0 30px #000; }
+.sub { color: #ddd; font-size: 16px; }
+.btn, .btn2 { display: inline-block; background: #FBBC04; color: #fff; padding: 14px 28px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.btn2 { background: #34A853; font-size: 11px; }
+
+.section { padding: 70px 40px; }
+.section h1, .section h2, .section h4, h5 { font-size: 14px; color: #999; }
+.light { color: #aaa; font-size: 11px; line-height: 1.2; }
+
+.stats { display: flex; gap: 40px; margin-top: 30px; }
+.stats b { font-size: 36px; color: #EA4335; }
+.stats div { color: #ccc; font-size: 10px; }
+
+.cards { display: flex; gap: 20px; flex-wrap: wrap; }
+.card { width: 300px; padding: 12px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.card img { width: 100%; }
+.card:hover { transform: scale(1.08) rotate(2deg); }
+
+.quote { font-size: 18px; color: #FBBC04; min-height: 60px; }
+
+input { display: block; width: 320px; padding: 10px; margin-bottom: 12px; border: 1px solid #eee; font-size: 12px; }
+#msg { margin-left: 12px; font-size: 12px; }
+
+.footer { background: #f5f5f5; padding: 30px 40px; color: #bbb; font-size: 10px; }
+
+@media (max-width: 700px) { .stats { flex-wrap: nowrap; } .card { width: 600px; } }
